@@ -68,7 +68,6 @@ exports.NotifyClassroom = async function NotifyClassroom(runnerResults) {
   // the title and summary to be overwritten by GitHub Actions (they are required in this call)
   // We'll also store the total in an annotation to future-proof
   const text = `Points ${totalPoints}/${maxPoints}`
-  console.log(text)
   await octokit.rest.checks.update({
     owner,
     repo,
