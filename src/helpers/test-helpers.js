@@ -10,7 +10,9 @@ const totalPercentageReducer = (acc, {score, weight, maxScore}) => {
 
 const getTestScore = (runnerResult) => {
   return runnerResult.tests.reduce((acc, {status, score}) => {
-    return status === 'pass' ? acc + score : acc
+    if (score === 'pass') return acc + score
+    else if (score !== undefined && score > 0) return acc + score
+    else return acc
   }, 0)
 }
 
